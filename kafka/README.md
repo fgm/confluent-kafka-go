@@ -1,13 +1,12 @@
 # Information for confluent-kafka-go developers
 
-Since the package does not currently use modules, export
-`GO111MODULE=off` or preprend it to all commands.
+*Go 1.16* Since the package does not currently use modules, export
+`GO111MODULE=off` or prepend it to all commands.
 
 Whenever librdkafka error codes are updated make sure to run generate
 before building:
 
 ```
-  $ export GO111MODULE=off
   $ make -f mk/Makefile generr
   $ go build ./...
 ```
@@ -15,7 +14,7 @@ before building:
 
 ## Testing
 
-Some of the tests included in the `kakfa` directory, the benchmark and integration tests in particular,
+Some of the tests included in this directory, the benchmark and integration tests in particular,
 require an existing Kafka cluster and a `testconf.json` configuration file to
 provide tests with bootstrap brokers, topic name, etc.
 
@@ -32,21 +31,18 @@ See testconf-example.json for an example and full set of available options.
 
 To run unit-tests:
 ```
-$ export GO111MODULE=off
 $ cd kafka
 $ go test
 ```
 
 To run benchmark tests:
 ```
-$ export GO111MODULE=off
 $ cd kafka
 $ go test -bench .
 ```
 
 For the code coverage:
 ```
-$ export GO111MODULE=off
 $ cd kafka
 $ go test -coverprofile=coverage.out -bench=.
 $ go tool cover -func=coverage.out
